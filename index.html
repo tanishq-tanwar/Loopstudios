@@ -129,7 +129,15 @@
       .justify-center{justify-content: center;}
       .justify-right{justify-content: right;}
       .align-item{align-items: center;}
-
+      .none-display {
+        display: none;
+      }
+      .display {
+        display: block;
+      }
+      .no-display {
+        display: none;
+      }
       .wrap-1 {
         background: url(images/desktop/image-hero.jpg) no-repeat center/cover;
         padding: 70px 15px 140px;
@@ -572,8 +580,11 @@
             <a href="#support">Support</a>
           </nav>
           <button class="btn-menu">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <svg class="hamburger" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>  
+            <svg class="none-display" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>  
           </button>
           <nav class="menu">
@@ -768,12 +779,16 @@
       document.querySelector('.btn-menu').addEventListener("click",function(){
         document.querySelector('.menu').classList.toggle('block')
         document.body.classList.toggle('overflow')
+        document.querySelector('.none-display').classList.toggle('display');
+        document.querySelector('.hamburger').classList.toggle('no-display');
       })
       const menu = document.querySelectorAll('.menu a');
       menu.forEach((i) => {
         i.addEventListener("click", function(){
           document.querySelector('.menu').classList.remove('block')
           document.body.classList.toggle('overflow')
+          document.querySelector('.none-display').classList.toggle('display');
+          document.querySelector('.hamburger').classList.toggle('no-display');
         })
       })
     </script>
